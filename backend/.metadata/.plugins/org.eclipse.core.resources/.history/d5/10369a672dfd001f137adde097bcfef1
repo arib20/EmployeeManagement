@@ -1,0 +1,14 @@
+package com.example.ems.security;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+
+public class CustomAuthenticationToken extends UsernamePasswordAuthenticationToken {
+
+    public CustomAuthenticationToken(UserDetails userDetails, Collection<? extends GrantedAuthority> authorities) {
+        super(userDetails, null, authorities); // Fix: Credentials set to null explicitly
+    }
+}
